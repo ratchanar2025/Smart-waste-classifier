@@ -6,7 +6,7 @@ import { Camera, Zap, BarChart3, ShieldCheck, RefreshCcw } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 
 // PASTE YOUR TEACHABLE MACHINE LINK HERE (Keep the trailing slash)
-const MODEL_URL = "https://teachablemachine.withgoogle.com/models/3TX7OwcV0/";
+const MODEL_URL = "https://teachablemachine.withgoogle.com/models/CGEAicH_n/";
 
 export default function App() {
   const [prediction, setPrediction] = useState("Initializing...");
@@ -61,9 +61,9 @@ export default function App() {
   useEffect(() => { init(); }, []);
 
   const getAccentColor = () => {
-    if (prediction === "Paper") return "text-green-400 border-green-500/50 shadow-green-500/20";
-    if (prediction === "Plastic") return "text-blue-400 border-blue-500/50 shadow-blue-500/20";
-    if (prediction === "Metal") return "text-yellow-400 border-yellow-500/50 shadow-yellow-500/20";
+    if (prediction === "paper") return "text-green-400 border-green-500/50 shadow-green-500/20";
+    if (prediction === "plastic") return "text-blue-400 border-blue-500/50 shadow-blue-500/20";
+    if (prediction === "metal") return "text-yellow-400 border-yellow-500/50 shadow-yellow-500/20";
     return "text-cyan-400 border-slate-700 shadow-transparent";
   };
 
