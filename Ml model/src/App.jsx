@@ -58,7 +58,24 @@ export default function App() {
     }
   };
 
-  useEffect(() => { init(); }, []);
+  // Inside App.jsx
+  useEffect(() => {
+    let isMounted = true;
+
+    const startApp = async () => {
+      if (isMounted) await init();
+    };
+
+    startApp();
+
+    // Cleanup function to stop webcam when window/tab closes or component unmounts
+    return () => {
+      isMounted = false;
+      if (webcamRef.current) {
+        webcamRef.current.stop();
+      }
+    };
+  }, []);
 
   const getAccentColor = () => {
     if (prediction === "paper") return "text-green-400 border-green-500/50 shadow-green-500/20";
